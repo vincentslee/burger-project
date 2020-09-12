@@ -1,0 +1,28 @@
+<h1 class="orderTitle">Order a Burger</h1><br>
+    <form class="create-form">
+        <label for="newburger"></label>
+        <input type="text" id="newburger" class="textArea" name="burger"><br>
+        <button type="submit" class="orderBtn" id="addburger">Order a Burger!</button>
+    </form>
+
+<div class="burgerName">
+    <h1>Burgers Ordered</h1>
+       <ul>
+            {{#each burgers}}
+            {{#unless eaten}}
+            <li>{{this.id}} - {{this.name}} <button type="button" class="eatburger" id ="eatbutton" data-id="{{this.id}}" data-newDevoured="{{devour}}">Devour Burger!</button></li>
+            {{/unless}}
+            {{/each}}
+            </ul>
+</div>
+ 
+<div  class="devoured">
+<h1>Devoured Burgers</h1>
+    <ul>
+        {{#each burgers}}
+        {{#if eaten}}
+        <li>{{this.id}} - {{this.name}} <button type="button" class="deleteburger" id ="deleteburger" data-id="{{this.id}}" data-newDevoured="{{devour}}">Delete Burger!</button></li>
+        {{/if}}
+        {{/each}}
+        </ul>
+</div>           
